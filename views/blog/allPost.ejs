@@ -24,7 +24,7 @@
         <h5 class="card-title">
           <a href="post/<%= each._id %>"><%= each.title %></a>
         </h5>
-        <p class="card-text"><%= each.description %></p>
+        <p class="card-text"><%= each.description.slice(0, 260) %>...</p>
         <p class="card-text">
           <small class="text-muted">Author: <%= each.createdBy.name %> </small>
         </p>
