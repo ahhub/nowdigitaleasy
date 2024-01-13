@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate')%>
+<div
+  class="container-lg container d-flex align-items-center justify-content-center"
+>
+  <div class="card m-5 w-75">
+    <img
+      src="<%= post.image %>"
+      alt="<%= post.title %>"
+      style="height: 420px"
+    />
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <p class="card-text"><%= post.description %></p>
+      <span
+        >Author:
+        <a href="#" class="card-link"><%= post.createdBy.name %></a></span
+      >
+      <p class="card-text">
+        <small class="text-body-secondary"><%= post.date %></small>
+      </p>
+      <div class="d-flex p-2 bd-highlight">
+        <form action="/post/<%= post._id %>/?_method=DELETE" method="POST">
+          <input type="hidden" name="image_path" value="<%= post.image %>" />
+          <button class="btn btn-primary btn-lg btn-danger">Delete</button>
+        </form>
+        <a
+          href="<%= post._id %>/edit"
+          class="card-link btn btn-secondary btn-lg"
+          style="margin-left: 16px"
+          >Edit</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

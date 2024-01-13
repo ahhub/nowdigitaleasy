@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate')%>
+<form action="/post" method="post" enctype="multipart/form-data" class="validated-form>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title of Your Post</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="title"
+      name="title"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea
+      class="form-control"
+      id="description"
+      rows="5"
+      name="description"
+      required
+    ></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">Choose your Blog post image</label>
+    <input class="form-control" type="file" id="image" name="image" required />
+  </div>
+  <button
+    class="btn btn-primary w-100 text-center"
+    type="submit"
+    style="font-size: 24px"
+  >
+    Save
+  </button>
+</form>

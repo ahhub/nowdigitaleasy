@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate')%>
+
+<p class="h1 m-3">
+  <a
+    class="text-primary rounded"
+    href="/post/new"
+    style="background-color: rgb(202, 208, 208); text-decoration: none"
+    >Create a post</a
+  >
+</p>
+
+<div class="card mb-3" style="max-width: 940px">
+  <% result.forEach((each)=>{%>
+  <div class="row g-0 m-3 border">
+    <div class="col-md-4">
+      <img
+        src="<%= each.image %>"
+        alt="<%= each.title %>"
+        style="width: 300px; height: 200px"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="post/<%= each._id %>"><%= each.title %></a>
+        </h5>
+        <p class="card-text"><%= each.description %></p>
+        <p class="card-text">
+          <small class="text-muted">Author: <%= each.createdBy.name %> </small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>

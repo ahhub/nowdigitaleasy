@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="container serach">
+	<h1>NSE STOCKS</h1>
+	<div class="mt-2">
+		<form method="post" action="/search">
+			<input
+				type="text"
+				class="form-control"
+				aria-label="Sizing example input"
+				aria-describedby="inputGroup-sizing-lg"
+				placeholder="Serach by Stock Name"
+				name="searchValue"
+			/>
+		</form>
+	</div>
+
+	<% if(output && output.length){ %>
+
+	<table class="table table-striped-columns mt-5">
+		<thead>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Current Market Price</th>
+				<th scope="col">Market Cap</th>
+				<th scope="col">Stock P/E</th>
+				<th scope="col">Dividend Yield</th>
+				<th scope="col">ROCE %</th>
+				<th scope="col">ROE Previous Annum</th>
+				<th scope="col">Debt to Equity</th>
+				<th scope="col">EPS</th>
+				<th scope="col">Reserves</th>
+				<th scope="col">Reserves</th>
+			</tr>
+		</thead>
+
+		<% output.forEach((e)=>{ %>
+		<tbody>
+			<tr>
+				<td><%= e.Name %></td>
+				<td><%= e.Current_Market_Price %></td>
+				<td><%= e.Market_Cap %></td>
+				<td><%= e.Stock_PE %></td>
+				<td><%= e.Dividend_Yield %></td>
+				<td><%= e.ROCE %></td>
+				<td><%= e.ROE_Previous_Annum %></td>
+				<td><%= e.Debt_to_Equity %></td>
+				<td><%= e.EPS %></td>
+				<td><%= e.Reserves %></td>
+				<td><%= e.Debt %></td>
+			</tr>
+		</tbody>
+		<% }) %>
+	</table>
+	<% }else{ %>
+	<h1 class="mt-5">Search Again</h1>
+	<% } %>
+</div>
